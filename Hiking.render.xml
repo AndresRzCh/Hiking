@@ -529,11 +529,11 @@
 		<case attrColorValue="#000000"/>
 	</renderingAttribute>
   <!--epaisseur du trait des sentiers (path)-->
-	<renderingConstant name="pathStrokeWidth" value="2:2"/>
+	<renderingConstant name="pathStrokeWidth" value="1"/>
 	<renderingConstant name="pathLowZoomStrokeWidth" value="0.3"/>
   <!--forme du trait des sentiers (path)-->
-	<renderingConstant name="pathPathEffect" value="16_7"/>
-	<renderingConstant name="pathLowZoomPathEffect" value="7_4"/>
+	<renderingConstant name="pathPathEffect" value="5_10"/>
+	<renderingConstant name="pathLowZoomPathEffect" value="1"/>
 	<renderingConstant name="pathPathEffectSurfaceIntegrity" value="16_7"/>
 	<renderingAttribute name="cyclewayColor">
 		<case nightMode="true" attrColorValue="#8E8EE8"/>
@@ -565,12 +565,12 @@
 	</renderingAttribute>
  <!--couleurs de la difficulté des sentiers (path)-->
 	<renderingConstant name="sacScaleColor" value="#FF00F5"/>
-	<renderingConstant name="sacScaleColorT1" value="#5a3a22"/>
-	<renderingConstant name="sacScaleColorT2" value="#FF00F5"/>
-	<renderingConstant name="sacScaleColorT3" value="#FF00F5"/>
-	<renderingConstant name="sacScaleColorT4" value="#6000ff"/>
-	<renderingConstant name="sacScaleColorT5" value="#6000ff"/>
-	<renderingConstant name="sacScaleColorT6" value="#6000ff"/>
+	<renderingConstant name="sacScaleColorT1" value="#ccbe00"/>
+	<renderingConstant name="sacScaleColorT2" value="#cc7910"/>
+	<renderingConstant name="sacScaleColorT3" value="#cc0000"/>
+	<renderingConstant name="sacScaleColorT4" value="#59bec9"/>
+	<renderingConstant name="sacScaleColorT5" value="#1d2ccc"/>
+	<renderingConstant name="sacScaleColorT6" value="#563e8e"/>
 
 	<renderingConstant name="footwayStrokeWidth" value="2:2"/>
 	<renderingConstant name="footwayLowZoomStrokeWidth" value="0.5:0.5"/>
@@ -3775,7 +3775,7 @@
 				<apply shield="gray_round_shield"/>
 			</switch>
 			<switch hidePOIpre-activated="false" minzoom="12" iconOrder="60">
-				<case minzoom="18" tag="amenity" value="parking" icon="amenity_parking" iconOrder="200"/>
+				<case minzoom="12" tag="amenity" value="parking" icon="amenity_parking" iconOrder="200"/>
         <case tag="amenity" value="police" icon="amenity_police"/>
         <case tag="amenity" value="telephone" icon="amenity_telephone"/>
 				<case tag="amenity" value="post_office" icon="amenity_post_office" iconOrder="50"/>
@@ -4436,7 +4436,7 @@
 					</case>
 					<case minzoom="11" tag="landuse" value="industrial" color="$landuseIndustrialColor"/>
 					<case minzoom="12" tag="landuse" value="railway" color="$landuseRailwayColor"/>
-					<case minzoom="14" tag="amenity" value="parking" color="$parkingColor"/>
+					<case minzoom="12" tag="amenity" value="parking" color="$parkingColor"/>
 					<case minzoom="14" tag="landuse" value="garages" color="$landuseGaragesColor"/>
 
 
@@ -5374,47 +5374,54 @@
 							<apply_if minzoom="15" strokeWidth_4="2:2"/>
 							<apply_if minzoom="13" maxzoom="13" pathEffect_5="7_4"/>
 							<apply_if minzoom="14" maxzoom="14" pathEffect_5="10_5"/>
-			    		<apply>
-			    			<switch alpineHiking="true" minzoom="13">
-			    			 <!--forme et epaisseur  du trait pour la difficulté des sentiers (path)-->
-			    				<case additional="sac_scale=hiking" color_5="$pathColor" pathEffect_5="16_7"/>
-				    			<apply_if maxzoom="13" pathEffect_5="7_4"/>
-			    				<apply_if minzoom="14" maxzoom="14" pathEffect_5="10_5"/>
-			    				<case additional="sac_scale=mountain_hiking" color_5="$sacScaleColorT2" pathEffect_5="16_7"/>
-				    			<apply_if maxzoom="13" pathEffect_5="7_4"/>
-			    				<apply_if minzoom="14" maxzoom="14" pathEffect_5="10_5"/>
-				    			<case additional="sac_scale=demanding_mountain_hiking" color_5="$sacScaleColorT3" pathEffect_5="1"/>
-						    	<case additional="sac_scale=alpine_hiking" color_5="$sacScaleColorT4" pathEffect_5="16_7"/>
-							    <apply_if maxzoom="13" pathEffect_5="7_4"/>
-	    						<apply_if minzoom="14" maxzoom="14" pathEffect_5="10_5"/>
-			    				<case additional="sac_scale=demanding_alpine_hiking" color_5="$sacScaleColorT5" pathEffect_5="1"/>
-					    		<case additional="sac_scale=difficult_alpine_hiking" color_5="$sacScaleColorT6" pathEffect_5="4_7"/>
-					    		<apply_if maxzoom="14" strokeWidth_3="2:2" strokeWidth_4="2:2"/>
-					    		<apply_if minzoom="15" maxzoom="17" strokeWidth_3="3:3" strokeWidth_4="3:3"/>
-						    	<apply_if minzoom="18" strokeWidth_3="4:4" strokeWidth_4="4:4"/>
-				    		</switch>
-				    	</apply>
-              <apply_if hidepathvisibility="false" additional="trail_visibility=bad">
-                <case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
-                <case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_3"/>
-                <case minzoom="14" maxzoom="17" strokeWidth_5="3:3" pathEffect_5="0.5_9"/>
-              </apply_if>
-              <apply_if hidepathvisibility="false" additional="trail_visibility=horrible">
-                <case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
-                <case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_5"/>
-                <case minzoom="14" maxzoom="17" strokeWidth_5="3:3" pathEffect_5="0.5_15"/>
-              </apply_if>
-              <apply_if hidepathvisibility="false" additional="trail_visibility=no">
-                <case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
-                <case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_10"/>
-                <case minzoom="14" maxzoom="17" strokeWidth_5="3:3" pathEffect_5="0.5_30"/>
-              </apply_if>
-					    <apply_if additional="winter_road=yes">
-					    	<apply color_4="#55458FFF" strokeWidth_4="3:3"/>
-					    </apply_if>
-				    	<apply_if additional="ice_road=yes">
-				    		<apply color_4="#55458FFF" strokeWidth_4="3:3"/>
-				    	</apply_if>
+							<apply>
+								<switch alpineHiking="true" minzoom="13">
+									<case additional="sac_scale=hiking" color_5="$sacScaleColorT1"/>
+									<case additional="sac_scale=mountain_hiking" color_5="$sacScaleColorT2"/>
+									<case additional="sac_scale=demanding_mountain_hiking" color_5="$sacScaleColorT3"/>
+									<case additional="sac_scale=alpine_hiking" color_5="$sacScaleColorT4"/>
+									<case additional="sac_scale=demanding_alpine_hiking" color_5="$sacScaleColorT5"/>
+									<case additional="sac_scale=difficult_alpine_hiking" color_5="$sacScaleColorT6"/>
+								</switch>
+							</apply>
+
+							<apply_if hidepathvisibility="false" additional="trail_visibility=excellent">
+								<case maxzoom="12" strokeWidth_5="0.3" pathEffect_5="1"/>
+								<case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="1"/>
+								<case minzoom="14" strokeWidth_5="3:3" pathEffect_5="1"/>
+							</apply_if>
+							<apply_if hidepathvisibility="false" additional="trail_visibility=good">
+								<case maxzoom="12" strokeWidth_5="0.3" pathEffect_5="1"/>
+								<case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="1"/>
+								<case minzoom="14" strokeWidth_5="3:3" pathEffect_5="1"/>
+							</apply_if>
+							<apply_if hidepathvisibility="false" additional="trail_visibility=intermediate">
+								<case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
+								<case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_3"/>
+								<case minzoom="14" strokeWidth_5="3:3" pathEffect_5="0.5_5"/>
+							</apply_if>
+							<apply_if hidepathvisibility="false" additional="trail_visibility=bad">
+								<case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
+								<case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_3"/>
+								<case minzoom="14" strokeWidth_5="3:3" pathEffect_5="0.5_10"/>
+							</apply_if>
+							<apply_if hidepathvisibility="false" additional="trail_visibility=horrible">
+								<case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
+								<case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_5"/>
+								<case minzoom="14" strokeWidth_5="3:3" pathEffect_5="0.5_20"/>
+							</apply_if>
+							<apply_if hidepathvisibility="false" additional="trail_visibility=no">
+								<case maxzoom="12" strokeWidth_5="0.3" pathEffect_5=""/>
+								<case maxzoom="13" strokeWidth_5="1.5:1.5" pathEffect_5="0.5_10"/>
+								<case minzoom="14" strokeWidth_5="3:3" pathEffect_5="0.5_40"/>
+							</apply_if>
+
+							<apply_if additional="winter_road=yes">
+								<apply color_4="#55458FFF" strokeWidth_4="3:3"/>
+							</apply_if>
+							<apply_if additional="ice_road=yes">
+								<apply color_4="#55458FFF" strokeWidth_4="3:3"/>
+							</apply_if>
 							<apply_if additional="osmand_rungs=yes" pathIcon="rungs" shield="rungs_shield" pathIconStep="20"/>
 							<apply_if additional="assisted_trail=yes" color_5="$rungsColor"/>
 							<apply_if additional="osmand_safety_rope=yes" pathIcon="barrier_chain" shield="barrier_chain_shield" pathIconStep="40"/>
